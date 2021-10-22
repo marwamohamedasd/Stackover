@@ -19,9 +19,13 @@
         <p> <a href="{{url("question/show/{$question->id}")}}"> {{$question->description}}    </a>  </p>
         <p> created at:  {{$question->created_at}}</p>
 
+
     @auth
+        @if (in_array(\Illuminate\Support\Facades\Auth::user()->name , ['marwa mohamed', 'hadeer ahmed']))
         <a href="{{route('question.edite',$question->id)}}" class="btn btn-success" role="button"> Edite </a>
         <a href="{{route('delet.question',$question->id)}}" class="btn btn-danger" role="button">DELET</a>
+       @endif
+
 
         @endauth
 

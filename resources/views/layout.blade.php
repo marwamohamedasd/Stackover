@@ -20,7 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     @yield('style')
 </head>
 <body class="hold-transition sidebar-mini">
-
+<div class="wrapper">
 <!-- Navbar -->
 
 <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -191,19 +191,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-       {{--     <div class="image">
-                <img src="img/user-profile.jpg" class="img-circle elevation-2" alt="User Image">
-            </div>--}}
+            {{--     <div class="image">
+                     <img src="img/user-profile.jpg" class="img-circle elevation-2" alt="User Image">
+                 </div>--}}
             <div class="info">
                 <a href="#" class="d-block">
                     @if(\Illuminate\Support\Facades\Auth::check())
 
-                   <h8> Hi {{\Illuminate\Support\Facades\Auth::user()->name}} </h8>
+                        <h8> Hi {{\Illuminate\Support\Facades\Auth::user()->name}} </h8>
 
 
                     @elseif(!\Illuminate\Support\Facades\Auth::check())
-                       <p> Not login</p>
-                @endif
+                        <p> Not login</p>
+                    @endif
 
 
                 </a>
@@ -225,7 +225,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link ">
+                            <a href="{{route('tag.index')}}" class="nav-link ">
                                 <i class="fas fa-tags"></i>
                                 <p>Tags</p>
                             </a>
@@ -296,6 +296,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 
+</div>
 </div>
 
 

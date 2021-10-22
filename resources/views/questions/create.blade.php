@@ -30,7 +30,7 @@
                                         <div class="input-group-prepend">
                                             <label class="input-group-text" for="inputGroupSelect01">Tags </label>
                                         </div>
-                                        <select class="custom-select" name="name" aria-label="choose tags">
+                                        <select class="custom-select" name="name[]" aria-label="choose tags" multiple>
                                             @foreach($tags as $tag)
                                             <option value="{{$tag->id}}"> {{$tag->name}}</option>
 

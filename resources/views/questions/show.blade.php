@@ -55,11 +55,13 @@
 
         <tr>
             @auth
+                @if(\Illuminate\Support\Facades\Auth::user()->name == 'marwa mohamed')
             <div class="align-bottom">
             <a href="{{route('answer.edite',$answer->id)}}" class="btn btn-success" role="button"> Edite </a>
 
             <a href="{{route('delet',$answer->id)}}" class="btn btn-danger" role="button">DELET</a>
             </div>
+                @endif
             @endauth
         </tr>
 

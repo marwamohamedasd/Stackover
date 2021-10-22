@@ -17,4 +17,12 @@ class TestController extends Controller
         ]);*/
 
     }
+
+
+
+
+    public function index() {
+
+        dd(in_array('5', ['5'], TRUE));
+    }
 }

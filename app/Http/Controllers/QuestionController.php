@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Question;
+use App\Models\questions_tags;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -79,7 +80,15 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::findOrFail($id);
-        return  view('questions.edite',['question'=>$question]);
+        $original_tags_ids = questions_tags::where('question_id', $question->id)->select('tag_id')->get()->toArray();
+        $tags=Tag::select('id','name')->get();
+        $tags_ids = [];
+        foreach ($original_tags_ids as $tag_id) {
+            $tags_ids[] = array_values($tag_id)[0];
+        }
+
+
+        return  view('questions.edite', compact('question', 'tags', 'tags_ids'));
     }
 
     /**
@@ -91,6 +100,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
+//        dd($request->all());
         $request->validate([
 
             'description'=>'required|string|max:255',

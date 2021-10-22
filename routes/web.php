@@ -26,6 +26,8 @@ Route::get('/question/show/{id}', [QuestionController::class ,'show'])->name('qu
 
 
 
+
+
 /*answer*/
 
 
@@ -84,6 +86,14 @@ Route::middleware('Is-login')->group(function (){
 
 
 });
+
+Route::get('/test',  [\App\Http\Controllers\TestController::class ,'index']);
+// tags
+
+
+Route::get('/tag/index',[\App\Http\Controllers\Tagscontroller::class ,'index'])->name('tag.index');
+
+Route::get('/tag/show/{id}',[\App\Http\Controllers\Tagscontroller::class ,'show'])->name('tag.show');
 
 
 //Route::get('/test', [TestController::class ,'test']);
